@@ -1,0 +1,34 @@
+# Ported from bashrc
+
+ #If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# Turn on LSCOLORS for Mac
+export CLICOLOR=1
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+
+# don't put duplicate lines in the history. See bash(1) for more options
+# ... or force ignoredups and ignorespace
+HISTCONTROL=ignoredups:ignorespace
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# Alias definitions.
+if [ -f "$(dirname $0)/aliases.sh" ]; then
+    source "$(dirname $0)/aliases.sh"
+fi
+
+if [ -f ~/.bash_aliases.sh ]; then
+    . ~/.bash_aliases.sh
+fi
+
+# Show line number; oh-my-zsh has the other GREP_OPTIONS I want
+export GREP_OPTIONS="$GREP_OPTIONS -n"
+
+# Add scripts to path
+export PATH=$PATH:~/scripts
