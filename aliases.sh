@@ -12,13 +12,6 @@ function changeDirectory {
 alias rebash='source ~/.zshrc'
 
 alias ..='cl ..'
-
-# Application specific aliases
-if [ -x /Applications/MATLAB_R2013b.app/bin/matlab ]
-then
-    alias matlab='/Applications/MATLAB_R2013b.app/bin/matlab'
-fi
-
 alias vim='mvim -v'
 
 # Helper functions

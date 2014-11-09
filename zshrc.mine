@@ -32,3 +32,7 @@ export GREP_OPTIONS="$GREP_OPTIONS -n"
 
 # Add scripts to path
 export PATH=$PATH:~/scripts
+
+# Start MATLAB with Java 9 to fix blurriness
+export MATLAB_JAVA='/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/jre'
+
