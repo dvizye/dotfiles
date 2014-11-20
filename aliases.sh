@@ -14,6 +14,8 @@ alias rebash='source ~/.zshrc'
 alias ..='cl ..'
 alias vim='mvim -v'
 
+alias ff='find . -iname'
+
 # Helper functions
 function changeDirectory {
     cd $1 ; ls
