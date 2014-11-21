@@ -28,7 +28,7 @@ if [ -f ~/.bash_aliases.sh ]; then
 fi
 
 # Show line number; oh-my-zsh has the other GREP_OPTIONS I want
-# export GREP_OPTIONS="$GREP_OPTIONS -n"
+export GREP_OPTIONS="$GREP_OPTIONS -n"
 
 # Add scripts to path
 export PATH=$PATH:~/scripts
