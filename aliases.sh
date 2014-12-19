@@ -20,3 +20,7 @@ alias ff='find . -iname'
 function changeDirectory {
     cd $1 ; ls
 }
+
+# Machine/Application specific
+alias robocode='~/robocode/robocode.sh'
+

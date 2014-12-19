@@ -3,10 +3,6 @@
  #If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-# Turn on LSCOLORS for Mac
-export CLICOLOR=1
-export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
 HISTCONTROL=ignoredups:ignorespace
@@ -28,13 +24,13 @@ if [ -f ~/.bash_aliases.sh ]; then
 fi
 
 # Show line number; oh-my-zsh has the other GREP_OPTIONS I want
-export GREP_OPTIONS="$GREP_OPTIONS -n"
+# export GREP_OPTIONS="$GREP_OPTIONS -n"
 
 # Add scripts to path
-export PATH=$PATH:~/scripts
+export PATH=~/scripts:/usr/local/bin:$PATH
 
-# Start MATLAB with Java 9 to fix blurriness
-export MATLAB_JAVA='/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/jre'
-
-# Set up drake for MATLAB
-export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/X11/lib/pkgconfig
+DIR=$( cd "$( dirname "$0" )" && pwd )
+unamestr=`uname`
+if [[ "$unamestr" == 'Darwin' ]]; then
+    source "$DIR/zshrc.mac"
+fi
