@@ -7,3 +7,10 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 # Set up drake for MATLAB
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/X11/lib/pkgconfig
+
+CDPATH=$CDPATH:~:~/Dropbox
+
+DIR=$( cd "$( dirname "$0" )" && pwd )
+if [ -x "$DIR/divvy.sh" ]; then
+    $DIR/divvy.sh
+fi

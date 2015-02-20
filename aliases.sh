@@ -12,7 +12,7 @@ function changeDirectory {
 alias rebash='source ~/.zshrc'
 
 alias ..='cl ..'
-alias vim='mvim -v'
+alias vim='DYLD_FORCE_FLAT_NAMESPACE=1 mvim -v'
 
 alias ff='find . -iname'
 
@@ -23,4 +23,3 @@ function changeDirectory {
 
 # Machine/Application specific
 alias robocode='~/robocode/robocode.sh'
-

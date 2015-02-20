@@ -27,7 +27,7 @@ fi
 # export GREP_OPTIONS="$GREP_OPTIONS -n"
 
 # Add scripts to path
-export PATH=~/scripts:/usr/local/bin:$PATH
+export PATH=~/scripts:/usr/local/bin:/opt/local/bin:$PATH
 
 DIR=$( cd "$( dirname "$0" )" && pwd )
 unamestr=`uname`
