@@ -10,4 +10,8 @@ then
     ln -s "$DIR/zshrc.mine" "~/.zshrc.mine"
     ln -s "$DIR/zshrc.mac" ~/.zshrc.mac
 fi
+if [ ! -d ~/scripts ]
+then
+    ln -s "$DIR/scripts" ~/scripts
+fi
 
