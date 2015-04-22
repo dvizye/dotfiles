@@ -39,3 +39,12 @@ unamestr=`uname`
 if [[ "$unamestr" == 'Darwin' ]]; then
     source "$DIR/zshrc.mac"
 fi
+
+if [ -d /home/dzy/src/gurobi602/linux64 ]; then
+    export GUROBI_HOME=/home/dzy/src/gurobi602/linux64
+fi
+
+# Setup trajopt
+if [ -d /home/dzy/trajopt ]  && [ -d /home/dzy/build_trajopt/lib ]; then
+    export PYTHONPATH=/home/dzy/build_trajopt/lib:/home/dzy/build_trajopt/lib:$PYTHONPATH
+fi
