@@ -12,13 +12,17 @@ function changeDirectory {
 alias rebash='source ~/.zshrc'
 
 alias ..='cl ..'
-alias vim='DYLD_FORCE_FLAT_NAMESPACE=1 mvim -v'
+# alias vim='DYLD_FORCE_FLAT_NAMESPACE=1 mvim -v'
 
 alias ff='find . -iname'
 
 # Helper functions
 function changeDirectory {
     cd $1 ; ls
+}
+
+function fd {
+    find . -name $1 -type d
 }
 
 # Machine/Application specific
