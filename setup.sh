@@ -29,7 +29,9 @@ fi
 # Mac specific setup
 unamestr=`uname`
 if [[ "$unamestr" == 'Darwin' ]]; then
-    # Symlink vim to macvim
-    if [ -x /usr/local/bin/mvim ]
-    ln -s /usr/local/bin/mvim /usr/local/bin/vim
+    # Change vim to mvim
+    if [ -x /usr/local/bin/mvim ]; then
+        echo 'DYLD_FORCE_FLAT_NAMESPACE=1 mvim -v $1' > /usr/local/bin/vim
+        chmod +x /usr/local/bin/vim
+    fi
 fi
