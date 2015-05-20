@@ -1,16 +1,20 @@
 [user]
-  name = David Ye
-  email = dvizye@gmail.com
+    name = David Ye
+    email = dvizye@gmail.com
 [alias]
-  co = checkout
-  ci = commit
-  st = status
-  br = branch
-  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-  type = cat-file -t
-  dump = cat-file -p
-  ctags = !.git/hooks/ctags
+    co = checkout
+    ci = commit
+    st = status
+    br = branch
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    type = cat-file -t
+    dump = cat-file -p
+    ctags = !.git/hooks/ctags
 [init]
-  templatedir = ~/.git_template
+    templatedir = ~/.git_template
 [diff]
-  tool = vimdiff
+    tool = vimdiff
+[push]
+    default = simple
+[core]
+    editor = vim
