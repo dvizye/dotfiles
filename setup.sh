@@ -23,7 +23,9 @@ fi
 
 if [ ! -f ~/.tmux.conf ]
 then
-    ln -s "$DIR/tmux.conf" ~/.tmux.conf
+    ln -s "$DIR/tmux/tmux.conf" ~/.tmux.conf
+    mkdir "$HOME/.tmux"
+    ln -s "$DIR/tmux/dev_env" ~/.tmux/dev_env
 fi
 
 # Mac specific setup
