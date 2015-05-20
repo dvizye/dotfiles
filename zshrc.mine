@@ -48,3 +48,9 @@ fi
 if [ -d /home/dzy/trajopt ]  && [ -d /home/dzy/build_trajopt/lib ]; then
     export PYTHONPATH=/home/dzy/build_trajopt/lib:/home/dzy/build_trajopt/lib:$PYTHONPATH
 fi
+
+# Bookmarks for navigation
+export DOT="$HOME/dotfiles"
+export VIM="$HOME/dotfiles/vim"
+export REF="$HOME/Dropbox/Reference_Sheets"
+
