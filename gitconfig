@@ -15,6 +15,10 @@
 [diff]
     tool = vimdiff
 [push]
-    default = simple
+    default = matching
 [core]
     editor = vim
+[mergetool "fugitive"]
+	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
+[merge]
+	tool = fugitive
