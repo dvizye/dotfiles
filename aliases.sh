@@ -12,7 +12,6 @@ function changeDirectory {
 alias rebash='source ~/.zshrc'
 
 alias ..='cl ..'
-# alias vim='DYLD_FORCE_FLAT_NAMESPACE=1 mvim -v'
 
 alias ff='find . -iname'
 
@@ -27,3 +26,10 @@ function fd {
 
 # Machine/Application specific
 alias robocode='~/robocode/robocode.sh'
+
+# Mac-specific aliases
+# (this is in addition to the script for mvim in order to get tmux to recognize that vim is running)
+unamestr=`uname`
+if [[ "$unamestr" == 'Darwin' ]]; then
+    alias vim='DYLD_FORCE_FLAT_NAMESPACE=1 mvim -v'
+fi
