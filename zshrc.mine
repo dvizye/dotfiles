@@ -122,3 +122,6 @@ function vim-process-swap {
     fi
  
 }
+
+# Hack for getting vim to work right in Ubuntu VM
+export VIMRUNTIME="/usr/share/vim/vim74"
