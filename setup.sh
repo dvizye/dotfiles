@@ -13,7 +13,7 @@ fi
 
 if [ ! -f ~/.vim/undodir ]
 then
-    touch '~/.vim/undodir'
+    mkdir "$HOME/.vim/undodir"
 fi
 
 if [ ! -d ~/scripts ]
@@ -30,7 +30,7 @@ fi
 
 # Mac specific setup
 unamestr=`uname`
-if [[ "$unamestr" == 'Darwin' ]]; then
+if [ "$unamestr" == 'Darwin' ]; then
     # Change vim to mvim
     if [ -x /usr/local/bin/mvim ]; then
         echo 'DYLD_FORCE_FLAT_NAMESPACE=1 mvim -v $1' > /usr/local/bin/vim
