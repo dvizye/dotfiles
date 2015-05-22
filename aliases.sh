@@ -33,3 +33,4 @@ unamestr=`uname`
 if [[ "$unamestr" == 'Darwin' ]]; then
     alias vim='DYLD_FORCE_FLAT_NAMESPACE=1 mvim -v'
 fi
+alias tmux='TERM=screen-256color-bce tmux'
