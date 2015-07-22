@@ -64,6 +64,14 @@ fi
 export DOT="$HOME/dotfiles"
 export VIM="$HOME/dotfiles/vim"
 export REF="$HOME/Dropbox/Reference_Sheets"
+export SCRATCH="$HOME/Dropbox/Projects/Scratch"
+export JOURNAL="$HOME/Dropbox/Projects/Journal"
+
+# Virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Dropbox/Projects
+source /usr/local/bin/virtualenvwrapper.sh
+
 
 function vim-process-swap {
     local swapfile_first=0

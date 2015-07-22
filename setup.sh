@@ -11,7 +11,7 @@ then
     ln -s "$DIR/zshrc.mac" ~/.zshrc.mac
 fi
 
-if [ ! -f ~/.vim/undodir ]
+if [ ! -d ~/.vim/undodir ]
 then
     mkdir "$HOME/.vim/undodir"
 fi
