@@ -1,3 +1,4 @@
+#!/bin/bash
 function _prompt_yn {
     while true; do
         read -p "$1 [y|n] " yn
@@ -9,7 +10,7 @@ function _prompt_yn {
     done
 }
 
-function vim-process-swap {
+function vim-proc-swap {
     local swapfile_first=0
     while true; do
         case "$1" in
@@ -24,16 +25,16 @@ function vim-process-swap {
         esac
     done
     local realfile=`readlink -f "$1"`
-    local path=`dirname "$realfile"`
+    local filepath=`dirname "$realfile"`
     local realname=`basename "$realfile"`
     if [ $swapfile_first -eq 1 ]; then
         local swapfile=$realfile
         realname=${realname:1:-4}
-        realfile="${path}/${realname}"
+        realfile="${filepath}/${realname}"
     else
-        local swapfile=${2:-"${path}/.${realname}.swp"}
+        local swapfile=${2:-"${filepath}/.${realname}.swp"}
     fi
-    local recoverfile=${3:-"${path}/${realname}-recovered"}
+    local recoverfile=${3:-"${filepath}/${realname}-recovered"}
     local lastresort=0
     for f in "$realfile" "$swapfile"; do
         if [ ! -f "$f" ]; then
@@ -61,7 +62,7 @@ function vim-process-swap {
     else
         lastresort=1
     fi
- 
+
     if [[ "$lastresort" -ne 0 ]]; then
         rm "$swapfile"
         vimdiff "$recoverfile" "$realfile"
@@ -69,7 +70,6 @@ function vim-process-swap {
             rm "$recoverfile"
         fi
     fi
- 
 }
- 
 
+vim-proc-swap $1
