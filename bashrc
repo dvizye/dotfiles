@@ -77,3 +77,6 @@ DIR=$( cd "$( dirname "$0" )" && pwd )
 function vim-process-swap {
     $DIR/bash_functions/vim-process-swap.sh $1
 }
+
+export SCALA_HOME=/opt/scala
+export PATH=$PATH:$SCALA_HOME/bin
