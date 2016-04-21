@@ -1,6 +1,8 @@
 # Ported from bashrc
 
- #If not running interactively, don't do anything
+# DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DIR="$HOME/dotfiles"
+# If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
 # don't put duplicate lines in the history. See bash(1) for more options
@@ -11,19 +13,16 @@ HISTCONTROL=ignoredups:ignorespace
 HISTSIZE=1000
 HISTFILESIZE=2000
 
-# Setup commenting
-setopt interactivecomments
-
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # Alias definitions.
-if [ -f "$(dirname $0)/aliases.sh" ]; then
-    source "$(dirname $0)/aliases.sh"
+if [ -f "$DIR/aliases.sh" ]; then
+    source "$DIR/aliases.sh"
 fi
 
-# if [ -f "$(dirname $0)/functions.sh" ]; then
-#     source "$(dirname $0)/functions.sh"
+# if [ -f "$DIR/functions.sh" ]; then
+#     source "$DIR/functions.sh"
 # fi
 
 
@@ -37,11 +36,10 @@ fi
 # Add scripts to path
 export PATH=~/scripts:/usr/local/bin:/opt/local/bin:$PATH
 
-DIR=$( cd "$( dirname "$0" )" && pwd )
-unamestr=`uname`
-if [[ "$unamestr" == 'Darwin' ]]; then
-    source "$DIR/zshrc.mac"
-fi
+# unamestr=`uname`
+# if [[ "$unamestr" == 'Darwin' ]]; then
+#    source "$DIR/zshrc.mac"
+# fi
 
 if [[ ! "$unamestr" == 'Darwin' ]]; then
     export OPENRAVE=`openrave-config --python-dir`/openravepy/_openravepy_/examples
@@ -68,12 +66,12 @@ export SCRATCH="$HOME/Dropbox/Projects/Scratch"
 export JOURNAL="$HOME/Dropbox/Projects/Journal"
 
 # Virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Dropbox/Projects
-source /usr/local/bin/virtualenvwrapper.sh
+if [ -x /usr/local/bin/virtualenvwrapper.sh ]; then
+   export WORKON_HOME=$HOME/.virtualenvs
+   export PROJECT_HOME=$HOME/Dropbox/Projects
+   source /usr/local/bin/virtualenvwrapper.sh
+fi
 
-
-DIR=$( cd "$( dirname "$0" )" && pwd )
 function vim-process-swap {
     $DIR/bash_functions/vim-process-swap.sh $1
 }
