@@ -48,13 +48,19 @@ fi
 # Set up bash
 if [[ "$PROFILE_SHELL" = "bash" ]]
 then
-	if [[ $PLATFORM = "mac" && ! -e "$HOME/.bash_profile" ]]
+    [[ -e "$HOME/.bash_profile" ]] && eval "$(mv $HOME/.bash_profile $HOME/.bash_profile.orig)"
+    [[ -e "$HOME/.bashrc" ]] && eval "$(mv $HOME/.bashrc $HOME/.bashrc.orig)"
+	if [[ $PLATFORM = "mac" ]]
 	then
-        echo "source ${DIR}/bashrc" > "$HOME/.bash_profile"
+        echo "source ${DIR}/bashrc &&
+            [[ -e $HOME/.bash_profile.orig ]] &&
+            source $HOME/.bash_profile.orig" > "$HOME/.bash_profile"
 		echo "Linked bash_profile"
-	elif [[ $PLATFORM = "linux" && ! -e "$HOME/.bashrc" ]]
+	elif [[ $PLATFORM = "linux" ]]
 	then
-        echo "source ${DIR}/bashrc" > "$HOME/.bashrc"
+        echo "source ${DIR}/bashrc &&
+            [[ -e $HOME/.bashrc.orig ]] &&
+            source $HOME/.bashrc.orig" > "$HOME/.bashrc"
 		echo "Linked bashrc"
 	else
 		echo "Did not link bashrc or bash_profile; Do they already exist?"
