@@ -59,7 +59,6 @@ if [ -d /home/dzy/trajopt ]  && [ -d /home/dzy/build_trajopt/lib ]; then
 fi
 
 export DOT="$HOME/dotfiles"
-export VIM="$HOME/dotfiles/vim"
 export REF="$HOME/Dropbox/Reference_Sheets"
 export SCRATCH="$HOME/Dropbox/Projects/Scratch"
 export JOURNAL="$HOME/Dropbox/Projects/Journal"
