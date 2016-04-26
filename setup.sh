@@ -75,11 +75,6 @@ then
 	fi
 fi
 
-if [ ! -d ~/.vim/undodir ]
-then
-    mkdir "$HOME/.vim/undodir"
-fi
-
 if [ ! -d ~/scripts ]
 then
     ln -s "$DIR/scripts" ~/scripts
