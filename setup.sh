@@ -50,11 +50,11 @@ if [[ "$PROFILE_SHELL" = "bash" ]]
 then
 	if [[ $PLATFORM = "mac" && ! -e "$HOME/.bash_profile" ]]
 	then
-		ln -s "$DIR/bashrc" "$HOME/.bash_profile"
+        echo "source ${DIR}/bashrc" > "$HOME/.bash_profile"
 		echo "Linked bash_profile"
 	elif [[ $PLATFORM = "linux" && ! -e "$HOME/.bashrc" ]]
 	then
-		ln -s "$DIR/bashrc" "$HOME/.bashrc"
+        echo "source ${DIR}/bashrc" > "$HOME/.bashrc"
 		echo "Linked bashrc"
 	else
 		echo "Did not link bashrc or bash_profile; Do they already exist?"
