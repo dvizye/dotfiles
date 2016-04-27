@@ -52,15 +52,15 @@ then
     [[ -e "$HOME/.bashrc" ]] && eval "$(mv $HOME/.bashrc $HOME/.bashrc.orig)"
 	if [[ $PLATFORM = "mac" ]]
 	then
-        echo "source ${DIR}/bashrc &&
-            [[ -e $HOME/.bash_profile.orig ]] &&
-            source $HOME/.bash_profile.orig" > "$HOME/.bash_profile"
+        echo "[[ -e $HOME/.bash_profile.orig ]] &&
+            source $HOME/.bash_profile.orig \n 
+            source ${DIR}/bashrc" > "$HOME/.bash_profile"
 		echo "Linked bash_profile"
 	elif [[ $PLATFORM = "linux" ]]
 	then
-        echo "source ${DIR}/bashrc &&
-            [[ -e $HOME/.bashrc.orig ]] &&
-            source $HOME/.bashrc.orig" > "$HOME/.bashrc"
+        echo "[[ -e $HOME/.bashrc.orig ]] &&
+            source $HOME/.bashrc.orig \n 
+            source ${DIR}/bashrc" > "$HOME/.bashrc"
 		echo "Linked bashrc"
 	else
 		echo "Did not link bashrc or bash_profile; Do they already exist?"
