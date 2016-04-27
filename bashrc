@@ -1,5 +1,22 @@
 # Ported from bashrc
 
+# Detect platform
+PLATFORM="unknown"
+case "$(uname -s)" in
+   Darwin)
+     PLATFORM="mac"
+     ;;
+   Linux)
+     PLATFORM="linux"
+     ;;
+   CYGWIN*|MINGW32*|MSYS*)
+     PLATFORM="windows"
+     ;;
+   *)
+     echo "Error: Could not detect OS"
+     ;;
+esac
+
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -35,14 +52,17 @@ fi
 # Add scripts to path
 export PATH=~/scripts:/usr/local/bin:/opt/local/bin:$PATH
 
+# Set ls colors for mac
+[[ $PLATFORM = "mac" ]] && export CLICOLOR=1 && 
+    export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+
 # unamestr=`uname`
 # if [[ "$unamestr" == 'Darwin' ]]; then
 #    source "$DIR/zshrc.mac"
 # fi
 
-if [[ ! "$unamestr" == 'Darwin' ]]; then
+if [[ ! $PLATFORM = 'mac' ]]; then
     export OPENRAVE=`openrave-config --python-dir`/openravepy/_openravepy_/examples
-    export VIMRUNTIME="/usr/share/vim/vim74"
 fi
 
 
