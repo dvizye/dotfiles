@@ -61,9 +61,9 @@ export PATH=~/scripts:/usr/local/bin:/opt/local/bin:$PATH
 #    source "$DIR/zshrc.mac"
 # fi
 
-if [[ ! $PLATFORM = 'mac' ]]; then
-    export OPENRAVE=`openrave-config --python-dir`/openravepy/_openravepy_/examples
-fi
+# if [[ ! $PLATFORM = 'mac' ]]; then
+#     export OPENRAVE=`openrave-config --python-dir`/openravepy/_openravepy_/examples
+# fi
 
 
 if [ -d /opt/gurobi602/linux64 ]; then
