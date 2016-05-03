@@ -46,6 +46,8 @@ else
     alias rebash="source ~/.bashrc"
 fi
 
+[[ -f ~/.bookmarks ]] && alias book="source ~/.bookmarks"
+
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 [[ -f $DIR/google_aliases.sh ]] && source "$DIR/google_aliases.sh"
 
