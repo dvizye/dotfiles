@@ -1,4 +1,4 @@
-# Ported from bashrc
+#!/usr/bin/env bash
 
 # Detect platform
 PLATFORM="unknown"
@@ -17,7 +17,7 @@ case "$(uname -s)" in
      ;;
 esac
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DIR=$( cd "$( dirname "$0" )" && pwd )
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -55,16 +55,6 @@ export PATH=~/scripts:/usr/local/bin:/opt/local/bin:$PATH
 # Set ls colors for mac
 [[ $PLATFORM = "mac" ]] && export CLICOLOR=1 && 
     export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-
-# unamestr=`uname`
-# if [[ "$unamestr" == 'Darwin' ]]; then
-#    source "$DIR/zshrc.mac"
-# fi
-
-# if [[ ! $PLATFORM = 'mac' ]]; then
-#     export OPENRAVE=`openrave-config --python-dir`/openravepy/_openravepy_/examples
-# fi
-
 
 if [ -d /opt/gurobi602/linux64 ]; then
     export GUROBI_HOME=/opt/gurobi602/linux64
