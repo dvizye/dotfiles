@@ -1,5 +1,8 @@
 # Ported from bashrc
 
+# Vim keybindings
+set -o vi
+
 # Detect platform
 PLATFORM="unknown"
 case "$(uname -s)" in
@@ -53,7 +56,7 @@ fi
 export PATH=~/scripts:/usr/local/bin:/opt/local/bin:$PATH
 
 # Set ls colors for mac
-[[ $PLATFORM = "mac" ]] && export CLICOLOR=1 && 
+[[ $PLATFORM = "mac" ]] && export CLICOLOR=1 &&
     export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 # unamestr=`uname`
@@ -71,6 +74,9 @@ if [ -d /opt/gurobi602/linux64 ]; then
     export PATH="${PATH}:${GUROBI_HOME}/bin"
     export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/local/lib/:${GUROBI_HOME}/lib"
 fi
+
+# Setup OpenCV
+export PYTHONPATH=~/Projects/opencv/build/lib:$PYTHONPATH
 
 # Setup trajopt
 if [ -d /home/dzy/trajopt ]  && [ -d /home/dzy/build_trajopt/lib ]; then

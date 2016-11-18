@@ -1,0 +1,30 @@
+#!/usr/bin/env python
+
+import argparse as ap
+import time
+
+MSECONDS_IN_DAY = 86400000
+
+if __name__ == '__main__':
+    parser = ap.ArgumentParser(description='Epoch time utility')
+    parser.add_argument('--unit', dest='output_unit', action='store', default='ms')
+    parser.add_argument('--time', action='store', default=int(time.time() * 1000))
+    parser.add_argument('--input_unit', action='store', default='ms')
+
+    args = parser.parse_args()
+
+    # If time is provided, update date_in_ms
+    if args.time:
+        if args.input_unit[0].upper() == 'M':
+            date_in_ms = int(args.time)
+        elif args.input_unit[0].upper() == 'S':
+            date_in_ms = int(args.time) * 1000
+        else:
+            date_in_ms = int(args.time) * MSECONDS_IN_DAY
+
+    if args.output_unit[0].upper() == 'M':
+        print date_in_ms
+    elif args.output_unit[0].upper() == 'S':
+        print int(round(date_in_ms / float(1000)))
+    else:
+        print int(round(date_in_ms / float(MSECONDS_IN_DAY)))
