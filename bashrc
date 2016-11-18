@@ -1,5 +1,8 @@
 # Ported from bashrc
 
+# Vim key bindings
+set -o vi
+
 # Detect platform
 PLATFORM="unknown"
 case "$(uname -s)" in
@@ -29,6 +32,7 @@ HISTCONTROL=ignoredups:ignorespace
 HISTSIZE=1000
 HISTFILESIZE=2000
 
+
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
@@ -53,7 +57,7 @@ fi
 export PATH=~/scripts:/usr/local/bin:/opt/local/bin:$PATH
 
 # Set ls colors for mac
-[[ $PLATFORM = "mac" ]] && export CLICOLOR=1 && 
+[[ $PLATFORM = "mac" ]] && export CLICOLOR=1 &&
     export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 # unamestr=`uname`
@@ -96,3 +100,5 @@ function vim-process-swap {
 
 export SCALA_HOME=/opt/scala
 export PATH=$PATH:$SCALA_HOME/bin
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
