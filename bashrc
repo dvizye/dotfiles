@@ -1,6 +1,5 @@
 #!/usr/bin/env/bash
-
-# Vim key bindings
+# Vim keybindings
 set -o vi
 
 # Detect platform
@@ -28,7 +27,6 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
 done
 DIR="$( cd "$( dirname "${SOURCE}" )" && pwd )"
 
-echo $DIR
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -99,6 +97,8 @@ function vim-process-swap {
     $DIR/bash_functions/vim-process-swap.sh $1
 }
 
+export VISUAL=/usr/bin/vim
+export EDITOR=/usr/bin/vim
 export SCALA_HOME=/opt/scala
 export PATH=$PATH:$SCALA_HOME/bin
 export LC_CTYPE=en_US.UTF-8
