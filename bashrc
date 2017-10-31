@@ -1,5 +1,5 @@
 # Vim keybindings
-set -o vi
+# set -o vi
 
 # Detect platform
 PLATFORM="unknown"
@@ -85,11 +85,9 @@ export SCRATCH="$HOME/Dropbox/Projects/Scratch"
 export JOURNAL="$HOME/Dropbox/Projects/Journal"
 
 # Virtualenvwrapper
-if [ -x /usr/local/bin/virtualenvwrapper.sh ]; then
-   export WORKON_HOME=$HOME/.virtualenvs
-   export PROJECT_HOME=$HOME/Dropbox/Projects
-   source /usr/local/bin/virtualenvwrapper.sh
-fi
+export WORKON_HOME=$HOME/virtualenvs
+export PROJECT_HOME=$HOME/Projects
+source /usr/local/bin/virtualenvwrapper.sh
 
 function vim-process-swap {
     $DIR/bash_functions/vim-process-swap.sh $1
