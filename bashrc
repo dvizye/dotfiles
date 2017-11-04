@@ -33,8 +33,8 @@ DIR="$( cd "$( dirname "${SOURCE}" )" && pwd )"
 HISTCONTROL=ignoredups:ignorespace
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=50000
+HISTFILESIZE=50000
 
 
 # make less more friendly for non-text input files, see lesspipe(1)
