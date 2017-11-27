@@ -15,9 +15,10 @@
 [diff]
     tool = vimdiff
 [push]
-    default = matching
+	default = current
 [core]
     editor = vim
+    pager  = cat
 [mergetool "fugitive"]
 	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
 [merge]
