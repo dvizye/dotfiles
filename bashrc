@@ -99,3 +99,8 @@ export SCALA_HOME=/opt/scala
 export PATH=$PATH:$SCALA_HOME/bin
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+
+# source any remaining machine-specific configs
+if [ -f "$DIR/bashrc.machine_specific" ];
+  then source "$DIR/bashrc.machine_specific";
+fi
