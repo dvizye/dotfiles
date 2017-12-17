@@ -1,3 +1,4 @@
 *.swp
 *.machine_specific
 preexisting_configs/*
+machine_specific/*
