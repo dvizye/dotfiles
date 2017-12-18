@@ -1,1 +1,1 @@
-# TODO(dzy)
+. ~/.bashrc
