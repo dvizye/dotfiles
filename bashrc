@@ -1,3 +1,5 @@
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 # Vim keybindings
 # set -o vi
 
@@ -87,7 +89,9 @@ export JOURNAL="$HOME/Dropbox/Projects/Journal"
 # Virtualenvwrapper
 export WORKON_HOME=$HOME/virtualenvs
 export PROJECT_HOME=$HOME/Projects
-source /usr/local/bin/virtualenvwrapper.sh
+if [[ -f /usr/local/bin/virtualenvwrapper.sh ]]; then
+  source /usr/local/bin/virtualenvwrapper.sh
+fi
 
 function vim-process-swap {
     $DIR/bash_functions/vim-process-swap.sh $1
@@ -101,6 +105,6 @@ export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # source any remaining machine-specific configs
-if [ -f "$DIR/bashrc.machine_specific" ];
-  then source "$DIR/bashrc.machine_specific";
+if [ -f "$DIR/machine_specific/bashrc" ];
+  then source "$DIR/machine_specific/bashrc";
 fi
