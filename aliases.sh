@@ -54,6 +54,8 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 alias ..='cl ..'
 
 alias ff='find . -iname'
+# ssh into GCE instance w/ gpu
+alias gpu='gcloud compute --project "tf-box-217802" ssh --zone "asia-east1-a" "instance-2"'
 
 # Helper functions
 function changeDirectory {
