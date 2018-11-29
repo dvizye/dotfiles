@@ -1,3 +1,9 @@
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+# Source machine specific aliases
+if [[ $DIR/machine_specific/aliases.sh ]]; then
+  source $DIR/machine_specific/aliases.sh
+fi
+
 if test -n "$ZSH_VERSION"; then
   PROFILE_SHELL=zsh
 elif test -n "$BASH_VERSION"; then
@@ -42,7 +48,7 @@ function changeDirectory {
 if [[ $PROFILE_SHELL = "zsh" ]]; then
     alias rebash='source ~/.zshrc'
 else
-    [[ $PLATFORM = "mac" ]] && alias rebash="source ~/.bash_profile" || 
+    [[ $PLATFORM = "mac" ]] && alias rebash="source ~/.bash_profile" ||
     alias rebash="source ~/.bashrc"
 fi
 
@@ -99,3 +105,6 @@ export AV="$HOME/av"
 # Git aliases
 alias gd='git diff'
 alias gs='git status'
+
+# Point python to python 3
+alias python='python3'
