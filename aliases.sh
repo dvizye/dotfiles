@@ -41,6 +41,3 @@ alias lint='arc lint --apply-patches'
 # Git aliases
 alias gd='git diff'
 alias gs='git status'
-
-# Point python to python 3
-alias python='python3'
