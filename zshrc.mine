@@ -1,4 +1,0 @@
-# Just source bashrc
-
-DIR=$( cd "$( dirname "$0" )" && pwd )
-source "$DIR/bashrc"
