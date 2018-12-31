@@ -1,7 +1,7 @@
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
 
-# Vim keybindings
-# set -o vi
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Detect platform
 PLATFORM="unknown"
@@ -20,15 +20,13 @@ case "$(uname -s)" in
      ;;
 esac
 
-SOURCE="${BASH_SOURCE[0]}"
-while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
-  DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
-  SOURCE="$(readlink "$SOURCE")"
-  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
-done
-DIR="$( cd "$( dirname "${SOURCE}" )" && pwd )"
-# If not running interactively, don't do anything
-[ -z "$PS1" ] && return
+# SOURCE="${BASH_SOURCE[0]}"
+# while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+#   DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+#   SOURCE="$(readlink "$SOURCE")"
+#   [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+# done
+# DIR="$( cd "$( dirname "${SOURCE}" )" && pwd )"
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
@@ -38,7 +36,6 @@ HISTCONTROL=ignoredups:ignorespace
 HISTSIZE=50000
 HISTFILESIZE=50000
 
-
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
@@ -47,44 +44,20 @@ if [ -f "$DIR/aliases.sh" ]; then
     source "$DIR/aliases.sh"
 fi
 
-# if [ -f "$DIR/functions.sh" ]; then
-#     source "$DIR/functions.sh"
-# fi
-
-
-if [ -f ~/.bash_aliases.sh ]; then
-    . ~/.bash_aliases.sh
-fi
-
-# Show line number; oh-my-zsh has the other GREP_OPTIONS I want
-# export GREP_OPTIONS="$GREP_OPTIONS -n"
-
 # Add scripts to path
 export PATH=~/scripts:/usr/local/bin:/opt/local/bin:$PATH
 
-# Set ls colors for mac
+# Set OS-specific ls colors.
 [[ $PLATFORM = "mac" ]] && export CLICOLOR=1 &&
     export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-
-if [ -d /opt/gurobi602/linux64 ]; then
-    export GUROBI_HOME=/opt/gurobi602/linux64
-    export PATH="${PATH}:${GUROBI_HOME}/bin"
-    export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/local/lib/:${GUROBI_HOME}/lib"
+if [[ $PLATFORM = "linux" ]]; then
+  export LS_OPTIONS='--color=auto'
+  eval "$(dircolors -b)"
+  alias ls='ls $LS_OPTIONS'
 fi
 
 # Setup OpenCV
 export PYTHONPATH=~/Projects/opencv/build/lib:$PYTHONPATH
-
-# Setup trajopt
-if [ -d /home/dzy/trajopt ]  && [ -d /home/dzy/build_trajopt/lib ]; then
-    export PYTHONPATH=~/trajopt:~/build_trajopt/lib:$PYTHONPATH
-    # export PYTHONPATH=/home/dzy/trajopt:/home/dzy/trajopt/build_trajopt/lib:$PYTHONPATH
-fi
-
-export DOT="$HOME/dotfiles"
-export REF="$HOME/Dropbox/Reference_Sheets"
-export SCRATCH="$HOME/Dropbox/Projects/Scratch"
-export JOURNAL="$HOME/Dropbox/Projects/Journal"
 
 # Virtualenvwrapper
 export WORKON_HOME=$HOME/virtualenvs
@@ -99,8 +72,6 @@ function vim-process-swap {
 
 export VISUAL=/usr/bin/vim
 export EDITOR=/usr/bin/vim
-export SCALA_HOME=/opt/scala
-export PATH=$PATH:$SCALA_HOME/bin
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
@@ -108,11 +79,6 @@ export LC_ALL=en_US.UTF-8
 if [ -f "$DIR/machine_specific/bashrc" ];
   then source "$DIR/machine_specific/bashrc";
 fi
-
-# Turn on colors in ls.
-export LS_OPTIONS='--color=auto'
-eval "$(dircolors -b)"
-alias ls='ls $LS_OPTIONS'
 
 # Show git branch in PS1.
 parse_git_branch() {
