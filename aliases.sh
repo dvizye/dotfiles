@@ -6,6 +6,9 @@ if [[ $DIR/machine_specific/aliases.sh ]]; then
   source $DIR/machine_specific/aliases.sh
 fi
 
+# Rebash
+alias rebash='source $DIR/bashrc'
+
 # Aliases for ls.
 alias ll='ls -alF'
 alias la='ls -A'
