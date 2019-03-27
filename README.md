@@ -12,3 +12,4 @@ Additional tweaks:
 
 # On Ubuntu:
 - Install `gnome-tweak-tool` and swap position of caps lock and Esc. Also make left Alt a ctrl key, Alt map to Windows key.
+- Install `junegunn/fzf`
