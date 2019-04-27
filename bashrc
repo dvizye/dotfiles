@@ -44,7 +44,7 @@ if [ -f "$DIR/aliases.sh" ]; then
 fi
 
 # Add scripts to path
-export PATH=~/scripts:/usr/local/bin:/opt/local/bin:$PATH
+export PATH=~/scripts:~/.local/bin:/usr/local/bin:/opt/local/bin:$PATH
 
 # Set OS-specific ls colors.
 [[ $PLATFORM = "mac" ]] && export CLICOLOR=1 &&
