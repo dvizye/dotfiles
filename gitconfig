@@ -5,13 +5,14 @@
     co = checkout
     ci = commit
     st = status
-    br = branch
+    br = !~/av/experimental/dking/bin/git_branch_tree.py
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     type = cat-file -t
     dump = cat-file -p
     ctags = !.git/hooks/ctags
     amend = commit -a --amend --no-edit
     nameonly = diff --name-only master
+    land = !~/av/experimental/dye/scripts/safe_land
 [init]
     templatedir = ~/.git_template
 [diff]
@@ -21,7 +22,11 @@
 [core]
     editor = vim
     pager  = less
+    excludesfile = temp/*
 [mergetool "fugitive"]
 	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
 [merge]
 	tool = fugitive
+[branch]
+    autosetupmerge = always
+    autosetuprebase = always
