@@ -44,7 +44,7 @@ if [ -f "$DIR/aliases.sh" ]; then
 fi
 
 # Add scripts to path
-export PATH=~/scripts:~/.local/bin:/usr/local/bin:/opt/local/bin:$PATH
+export PATH=~/.pyenv/bin:/usr/local/go/bin:~/scripts:~/.local/bin:/usr/local/bin:/opt/local/bin:$PATH
 
 # Set OS-specific ls colors.
 [[ $PLATFORM = "mac" ]] && export CLICOLOR=1 &&
@@ -88,3 +88,7 @@ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[0
 # export PROMPT_COMMAND="echo -n \[\$(date +%H:%M:%S)\]\ "
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

@@ -21,6 +21,9 @@ alias ..='cl ..'
 
 # Aliases for find.
 alias ff='find . -iname'
+function ffd {
+  cd $(dirname $(find . -iname $1 | head -n 1))
+}
 function fd {
     find . -name $1 -type d
 }

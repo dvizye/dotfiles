@@ -5,14 +5,17 @@
     co = checkout
     ci = commit
     st = status
-    br = !~/av/experimental/dking/bin/git_branch_tree.py
+    br = !~/av/tools/git/branch_tree
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     type = cat-file -t
     dump = cat-file -p
     ctags = !.git/hooks/ctags
     amend = commit -a --amend --no-edit
     nameonly = diff --name-only master
-    land = !~/av/experimental/dye/scripts/safe_land
+    unstage = reset --
+    land = !~/av/tools/git/safe_land
+    move-branch = !~/av/tools/git/move_branch
+    flow = !~/av/tools/git/flow
 [init]
     templatedir = ~/.git_template
 [diff]
