@@ -2,7 +2,7 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Source machine specific aliases
-if [[ $DIR/machine_specific/aliases.sh ]]; then
+if [[ -f $DIR/machine_specific/aliases.sh ]]; then
   source $DIR/machine_specific/aliases.sh
 fi
 

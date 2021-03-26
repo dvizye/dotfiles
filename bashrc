@@ -27,6 +27,9 @@ case "$(uname -s)" in
      ;;
 esac
 
+# Silence bash deprecation warning in Mac.
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
 HISTCONTROL=ignoredups:ignorespace
@@ -80,10 +83,12 @@ if [ -f "$DIR/machine_specific/bashrc" ];
 fi
 
 # Show git branch in PS1.
+
 parse_git_branch() {
- git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+ git branch 2>&1 /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;31m\]$(parse_git_branch)\[\033[00m\]\$ '
+
 # Show timestamps; Currently this is having issues when scrolling up in history
 # export PROMPT_COMMAND="echo -n \[\$(date +%H:%M:%S)\]\ "
 
