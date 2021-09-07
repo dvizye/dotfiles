@@ -46,8 +46,17 @@ if [ -f "$DIR/aliases.sh" ]; then
     source "$DIR/aliases.sh"
 fi
 
-# Add scripts to path
-export PATH=~/.pyenv/bin:/usr/local/go/bin:~/scripts:~/.local/bin:/usr/local/bin:/opt/local/bin:$PATH
+# Path modifications.
+# For `pycodestyle --first optparse.py`
+export PATH=~/Library/Python/3.9/bin:$PATH
+# For `code .`
+export PATH=/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin:$PATH
+# For pyenv.
+export PATH=~/.pyenv/bin:$PATH
+# For local bins.
+export PATH=/usr/local/go/bin:~/.local/bin:/usr/local/bin:/opt/local/bin:$PATH
+# For personal scripts.
+export PATH=~/scripts:$PATH
 
 # Set OS-specific ls colors.
 [[ $PLATFORM = "mac" ]] && export CLICOLOR=1 &&
